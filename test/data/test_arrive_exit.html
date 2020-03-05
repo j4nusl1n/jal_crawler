@@ -1,0 +1,578 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>JAL Domestic Flight - Arrivals & Departures</title>
+<link rel="stylesheet" type="text/css" media="all" href="/domes/common4/css/base.css">
+<link rel="stylesheet" type="text/css" media="all" href="/domes/common4/css/base2.css">
+<link rel="stylesheet" type="text/css" media="print" href="/domes/common4/css/print.css">
+<link rel="stylesheet" type="text/css" media="all" href="/domes/common4/css/global_header_book_2.css">
+<link rel="stylesheet" type="text/css" media="all" href="/domes/common4/css/information_block.css">
+<script type="text/javascript" src="/domes/common4/js/common.js"></script>
+<style type="text/css">
+<!--
+div.flightSelectFormBlockA01 table.selectionBlock td.pseudo-firsrtChild
+	{
+	border-right: none !important;
+	}
+
+#completedTable
+{
+width: 765px;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+border: 1px solid #787878;
+margin: 0;
+padding: 0;
+}
+
+#completedTable table
+{
+margin: 0;
+padding: 0;
+width: 100%;
+border: none;
+font-size: 12px;
+}
+
+/*
+#completedTable-body
+{
+font-family: Tahoma, Arial, Verdana, "MS UI Gothic", sans-serif;
+}
+*/
+
+#completedTable-body table
+{
+border-collapse: collapse;
+}
+
+#completedTable table.bargainTableA01 td
+{
+height:35px;
+}
+#completedTable table.bargainTableA01 th,
+#completedTable table.bargainTableA01 td
+{
+margin: 0;
+padding:5px 0;
+border-width:1px;
+border-style:solid;
+border-color:#a8a8a8 #d6d6d6 #d6d6d6 #d6d6d6;
+vertical-align: middle;
+line-height: 1;
+font-weight: normal;
+}
+
+#completedTable table.bargainTableA01 th
+{
+text-align: center;
+background-color:#B2B2B2;
+}
+
+#completedTable table.bargainTableA01 td.center
+{
+text-align: center;
+}
+
+#completedTable table.bargainTableA01 tbody#bording td
+{
+border-top:2px solid #a8a8a8;
+}
+
+td.bordingspace
+{
+border-top:1px solid #a8a8a8 !important;
+}
+
+#completedTable table.bargainTableA01 tbody tr td.bgbording
+{
+background-color:#eee;
+}
+
+#completedTable table.bargainTableA01 tbody td.completed
+{
+color:#990000;
+}
+
+tr.thead01 td{
+border-top-color:#000;
+}
+.emData{
+color:#cc0000;
+}
+.emData2{
+color:#0000FF;
+}
+.style2 {
+color: #cc0000; font-weight: bold;
+ }
+#completedTable table.bargainTableA01 tbody tr td table.simpleTable
+	{
+	border-style: none; !important;
+	}
+.plane {padding:0 2px;
+}
+-->
+</style>
+
+  <script>!function(){function o(n,i){if(n&&i)for(var r in i)i.hasOwnProperty(r)&&(void 0===n[r]?n[r]=i[r]:n[r].constructor===Object&&i[r].constructor===Object?o(n[r],i[r]):n[r]=i[r])}try{var n=decodeURIComponent("");if(n.length>0&&window.JSON&&"function"==typeof window.JSON.parse){var i=JSON.parse(n);void 0!==window.BOOMR_config?o(window.BOOMR_config,i):window.BOOMR_config=i}}catch(r){window.console&&"function"==typeof window.console.error&&console.error("mPulse: Could not parse configuration",r)}}();</script>
+  <script>!function(e){var a="https://s.go-mpulse.net/boomerang/",t="addEventListener";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,a="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="9672L-RTLZC-25ZQ7-NDEBF-7TRRC",function(){function n(a){e.BOOMR_onload=a&&a.timeStamp||(new Date).getTime()}if(!e.BOOMR||!e.BOOMR.version&&!e.BOOMR.snippetExecuted){e.BOOMR=e.BOOMR||{},e.BOOMR.snippetExecuted=!0;var i,o,r,_=document.createElement("iframe");if(e[t])e[t]("load",n,!1);else if(e.attachEvent)e.attachEvent("onload",n);_.src="javascript:void(0)",_.title="",_.role="presentation",(_.frameElement||_).style.cssText="width:0;height:0;border:0;display:none;",r=document.getElementsByTagName("script")[0],r.parentNode.insertBefore(_,r);try{o=_.contentWindow.document}catch(O){i=document.domain,_.src="javascript:var d=document.open();d.domain='"+i+"';void(0);",o=_.contentWindow.document}o.open()._l=function(){var e=this.createElement("script");if(i)this.domain=i;e.id="boomr-if-as",e.src=a+"9672L-RTLZC-25ZQ7-NDEBF-7TRRC",BOOMR_lstart=(new Date).getTime(),this.body.appendChild(e)},o.write("<bo"+'dy onload="document._l();">'),o.close()}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var a=""=="true"?1:0,t="",n="ht4bvelioqed2xrxymwa-f-3895b5e4a-clientnsv4-s.akamaihd.net",i={"ak.v":25,"ak.cp":"887636","ak.ai":parseInt("567173",10),"ak.ol":"0","ak.cr":14,"ak.ipv":4,"ak.proto":"","ak.rid":"1f74e871","ak.r":33103,"ak.a2":a,"ak.m":"a","ak.n":"essl","ak.bpcip":"60.248.26.0","ak.cport":56270,"ak.gh":"203.74.67.118","ak.quicv":"","ak.tlsv":"tls1.2","ak.0rtt":"","ak.csrc":"-","ak.acc":"reno","ak.t":"1580712748"};if(""!==t)i["ak.ruds"]=t;var o={i:!1,av:function(a){var t="http.initiator";if(a&&(!a[t]||"spa_hard"===a[t]))i["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(i)},rv:function(){var e=["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.r","ak.acc","ak.t"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:i,akDNSPreFetchDomain:n,init:function(){if(!o.i){var e=BOOMR.subscribe;e("before_beacon",o.av,null,null),e("onbeacon",o.rv,null,null),o.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+
+<body>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/domes/common4/css/rsv_header_footer_2015.css" type="text/css" media="all">
+
+<!-- [GLOBAL HEADER] -->
+<div id="globalHeader">
+<h1><img src="/domes/common4/img/header_logo_001_1.gif" width="381" height="35" alt="JAL | JAPAN AIRLINES"></h1>
+<ul>
+<li class="last"><a href="http://www.jal.co.jp/en/dom/" class="withIconA"><img src="/domes/common4/img/icon_triangle_001.gif" width="6" height="5" alt="">Domestic Flight TOP</a></li>
+</ul>
+</div>
+<!-- /[GLOBAL HEADER] -->
+
+
+
+
+
+<!--  JavaScriptOff 時対応 -->
+<noscript>
+	<table width="767" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td width="12"><img src="/domes/common4/img/clear.gif" alt="" width="12" height="7"></td>
+			<td width="743"><img src="/domes/common4/img/clear.gif" alt="" width="743" height="7"></td>
+			<td width="12"><img src="/domes/common4/img/clear.gif" alt="" width="12" height="7"></td>
+		</tr>
+		<tr>
+			<td width="12"></td>
+			<td width="743">
+				<table width="726" border="0" cellpadding="0" cellspacing="0">
+					<tr>
+						<td height="1"></td>
+					</tr>
+					<tr>
+						<td bgcolor="#999999">
+							<table width="100%" border="0" cellpadding="0" cellspacing="1">
+								<tr>
+									<td bgcolor="#FFFFFF">
+										<table width="100%" border="0" cellpadding="2" cellspacing="1">
+											<tr>
+												<td width="13%" align="center" nowrap bgcolor="#EEEEEE">
+													<span class="s3"><font color="#993300">To view this page, enabling JavaScript is required.<br><br>If your browser does not support Javascript, please visit JAL mobile site for PDA.</font></span>
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td height="1"></td>
+					</tr>
+				</table>
+			</td>
+			<td width="12"></td>
+		</tr>
+		<tr>
+			<td width="12"><img src="/domes/common4/img/clear.gif" alt="" width="12" height="7"></td>
+			<td width="743"><img src="/domes/common4/img/clear.gif" alt="" width="743" height="7"></td>
+			<td width="12"><img src="/domes/common4/img/clear.gif" alt="" width="12" height="7"></td>
+		</tr>
+	</table>
+	
+	<span style="position:relative;visibility:hidden;">
+</noscript>
+
+
+
+
+
+
+
+
+
+<!-- [ページタイトル] -->
+<div class="pageTitleC01">
+<div class="titleBody">
+<div class="titleFareGuide">
+<table border="0" cellpadding="0" cellspacing="0" width="744">
+	<tr>
+		<th>
+		<h1><img src="/domes/common4/img/head_jtime_eng.gif" width="600" height="47" alt="Arrivals &amp; Departures"></h1>
+		</th>
+	</tr>
+</table>
+<!-- /titleFareGuide --></div>
+<!-- /titleBody --></div>
+<div class="divide"><img src="/domes/common4/img/clear.gif" width="1" height="1" alt=""></div>
+<!-- /pageTitleC01 --></div>
+<!-- /[ページタイトル] -->
+
+
+<div class="spacer"><img src="/domes/common4/img/clear.gif" width="1" height="15" alt=""></div>
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="s3">Here is the latest information. We recommend checking your flight status before departing for the airport.<br></span>
+
+
+	<table width="500" border="0" cellpadding="1" cellspacing="0" class="tableA04">
+
+
+		<tr class="thead01">
+			<th>Date</th>
+			<th>Departure Airport</th>
+			
+			<td rowspan="2">
+				
+					<img src="/domes/common4/img/weather_fair.gif" width="29" height="29">
+				
+				
+				
+				
+				
+					
+			</td>
+			<td rowspan="2" class="number">20(C)<br>
+				15:30</td>
+			
+
+			
+				<th>Arrival Airport</th>
+			
+			
+
+			
+			<td rowspan="2">
+				
+				
+					<img src="/domes/common4/img/weather_clud.gif" width="29" height="29">
+				
+				
+				
+				
+				
+			</td>
+			<td rowspan="2" class="number pseudo-lastChild">14(C)<br>
+				15:30</td>
+			
+			</tr>
+		<tr>
+			<td>Mon.,03Feb</td>
+			<td>Okinawa (Naha)</td>
+			
+				<td>Tokyo (Haneda)</td>
+			
+			
+		</tr>
+	</table>
+	<div class="spacer"><img src="/domes/common4/img/clear.gif" width="1" height="10" alt=""></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- //// 発着状況 //// -->
+<!-- [発着案内] -->
+<div class="spacer"><img src="/domes/common4/img/clear.gif" width="1" height="10" alt=""></div>
+
+
+
+Flight with <strong class="emData">*</strong> mark is not operating as scheduled. Irregular ticket handling is applied.<br>
+Please check the upcoming operation status at <a href="http://www.jal.co.jp/cms/other/en/weather_info_dom.html#OUTLOOK" target="otherwindow" class="inPara"><img src="/domes/common4/img/icon_window_001.gif" width="14" height="11" alt="">Operation information</a>.<br>
+Information about the flight cancellation or delay will be announced at the "Remarks" column below of this page once finalized.<br>
+For more information about how to apply changes or refund due to flight disruption, please check <a href="http://www.jal.co.jp/en/dom/change/irregular.html" target="otherwindow" class="inPara"><img src="/domes/common4/img/icon_window_001.gif" width="14" height="11" alt="">here</a>.<br>
+
+
+
+<div id="completedTable">
+<div id="completedTable-body">
+<table border="0" cellpadding="0" cellspacing="0" width="765" class="bargainTableA01">
+	<colgroup>
+		<col width="7%">
+		<col width="1%">
+		<col width="5%">
+		<col width="">
+		<col width="4%">
+		<col width="5%">
+		
+			<col width="">
+			<col width="10%">
+		
+		
+		<col width="8%">
+		<col width="22%">
+
+	</colgroup>
+	<thead id="timetable">
+		<tr>
+			<th rowspan="2">
+				Flight
+			</th>
+			<th colspan="4">
+				Departs
+			</th>
+			
+			<th colspan="3">
+				Arrives
+			</th>
+			
+			
+			<th colspan="2" rowspan="2">
+				Remarks
+			</th>
+		</tr>
+		<tr>
+			<th>
+				&nbsp;
+			</th>
+			<th>
+				Scheduled
+			</th>
+			<th>
+				Status
+			</th>
+			<th>
+				Gate
+			</th>
+			<th>
+				Scheduled
+			</th>
+			
+			<th>
+				Status
+			</th>
+			<th>
+				Exit
+			</th>
+			
+			
+
+		</tr>
+	</thead>
+	<!-- [JAL1501] -->
+	<tbody id="bording">
+		
+			<tr>
+				<!-- 便名 -->
+				
+				<td valign="middle" class="center">
+				
+				
+					<!-- 国際線判定 -->
+					
+					<!-- 臨時便判定 -->
+					
+					<!-- 前日遅延便判定 -->
+					
+					JAL904
+					<!-- マルチ便 -->
+					
+				</td>
+				<!-- 払戻手数料免除便 -->
+				<td>
+					
+					
+						&nbsp;
+					</td>
+				<!-- 出発予定 -->
+				<td class="center">
+					11:35
+				</td>
+				<!-- 出発状況 -->
+				<td>
+					
+					
+					11:37　<span class="emData2">Departed</span>
+					
+					
+				</td>
+				<!-- 出発ゲート -->
+				<td class="center">
+					
+					
+						23  
+					
+				</td>
+				<!-- 到着予定 -->
+				<td class="center">
+					13:45
+				</td>
+				<!-- 到着状況 -->
+				<!-- 出口 -->
+				
+				<td>
+					
+					
+					14:04　<span class="emData2">Arrived</span>
+					
+				</td>
+				<td nowrap class="center">
+					North Wing
+				</td>
+				
+				
+				<!-- 備考１ -->
+				<td class="center">
+					<span class="style2"></span>
+				</td>
+				<!-- 備考２ -->
+				<td>
+					<span class="emData"></span>
+				</td>
+			</tr>
+		
+	</tbody>
+</table>
+</div>
+</div>
+
+
+<div class="spacer"><img height="10" alt="" src="/domes/common4/img/clear.gif" width="1"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- [ notice ] -->
+<div class="commentField">
+<h2 class="n3">Information</h2>
+<h3 class="n3 noteHead"><img src="/domes/common4/img/icon_note_001.gif" width="15" height="12" alt="">Notice</h3>
+<ul class="commentList noteList">
+	<li>International flights operated between domestic airports depart from /arrive at the international terminal.	</li>
+	
+	<li>Information listed for code share flights operated by airlines other than JAL group are for reference only, please contact the operating airline for detailed information.</li>
+	
+</ul>
+
+<h3 class="n3">About displayed information</h3>
+<ul class="commentList">
+	<li>Departure status indicates the actual time of departure when the aircraft "begins to move".</li>
+	<li>Please check the information about departure terminal or arrival wing at <a href="http://www.jal.co.jp/en/dom/airport/" target="otherwindow" class="inPara"><img src="/domes/common4/img/icon_window_001.gif" width="14" height="11" alt="">Airports in Japan</a>.</li>
+	<li>"South/North Wing" in the arrival information indicates the arrival wing in Terminal 1 of Tokyo Haneda Airport.</li>
+	<li>The Airline Codes information are shown below.</li>
+</ul>
+
+
+
+<table border="0" cellspacing="0" cellpadding="0" class="n3 definitionList">
+	<tr>
+		<th>JAL</th>
+		
+		
+		<td>Japan Airlines (Japan Airlines, J-AIR, Hokkaido Air System)</td>
+		
+		
+		
+	</tr>
+	<tr>
+		<th>JTA</th>
+		<td>Japan TransOcean Air</td>
+	</tr>
+	<tr>
+		<th>RAC</th>
+		<td>Ryukyu Air Commuter</td>
+	</tr>
+	<tr>
+		<th>JAC</th>
+		<td>Japan Air Commuter</td>
+	</tr>
+</table>
+
+
+
+<h3 class="n3">Information</h3>
+<ul class="commentList">
+	<li>You may also check the flight departure/arrival information for today up to the day after tomorrow through <a href="http://www.jal.co.jp/en/information/#flight" target="otherwindow" class="inPara"><img src="/domes/common4/img/icon_window_001.gif" width="14" height="11" alt="">24 hour flight information service</a> or <a href="http://www.jal.co.jp/en/information/#English" target="otherwindow" class="inPara"><img src="/domes/common4/img/icon_window_001.gif" width="14" height="11" alt="">JAL Information and Reservation</a>.</li>
+	<li>Please use <a href="https://fltinfo.5971.jal.co.jp/rsv/IrregularFlightListInput_en.do" target="otherwindow" class="inPara"><img src="/domes/common4/img/icon_window_001.gif" width="14" height="11" alt="">Flight Delay/Cancellation Information Search</a> to check the flight delay or cancellation information or issue a Delay/Cancellation Certificate. (Records within one year before today are available.)</li>
+</ul>
+
+<!-- /commentField --></div>
+<!-- /[ notice ] -->
+
+
+
+
+
+
+
+<!--  JavaScriptOff 時対応 -->
+<noscript>
+</span>
+</noscript>
+
+
+<!-- [グローバルフッダ] -->
+
+
+
+
+
+
+
+<!-- [GLOBAL FOOTER] -->
+<div id="globalFooter" class="rnClearfix">
+<ul>
+<li><a href="http://www.jal.co.jp/en/footer/legal.html" target="otherwindow"><img src="/domes/common4/img/icon_other_foot.gif" width="11" height="10" alt="">Legal Notice</a></li>
+<li><a href="http://www.jal.co.jp/en/information/" target="otherwindow"><img src="/domes/common4/img/icon_other_foot.gif" width="11" height="10" alt="">Contact Us</a></li>
+<li class="last"><a href="http://www.jal.co.jp/en/footer/security.html" target="otherwindow"><img src="/domes/common4/img/icon_other_foot.gif" width="11" height="10" alt="">Privacy Policy</a></li>
+</ul>
+<address><img src="/domes/common4/img/txt_footer_copy_001_1.gif" width="241" height="11" alt="Copyright &copy; Japan Airlines. All rights reserved."></address>
+</div>
+
+<script type="text/javascript"><!--
+var JLJS_RTTT_setupParams = {
+	_imgPath : "/domes/common5/img/rtam.gif"
+}
+//--></script>
+<script type="text/javascript" src="/domes/common5/js/rtam.js"></script>
+
+<!-- /[GLOBAL FOOTER] -->
+<!-- /[グローバルフッダ] -->
+
+</body>
+</html>

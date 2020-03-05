@@ -1,5 +1,6 @@
 .DS_Store
 *.pyc
 .vscode/*
-test/data/*.html
+test/data/[!test]*.html
+test/data/[!test]*.xml
 venv
