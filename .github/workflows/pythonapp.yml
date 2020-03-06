@@ -35,3 +35,7 @@ jobs:
       run: |
         pip install pytest
         pytest -v test/test*.py
+    - name: Coveralls
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
