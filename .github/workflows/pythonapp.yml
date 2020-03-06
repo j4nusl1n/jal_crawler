@@ -33,9 +33,10 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        pip install pytest
-        pytest -v test/test*.py
+        pip install pytest pytest-cov coverage
+        coverage run -m pytest -v --cov=./ --cov-config=.coveragerc test/test*.py
     - name: Coveralls
       uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
+        # path-to-lcov: .coverage
