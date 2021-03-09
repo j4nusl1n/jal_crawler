@@ -5,3 +5,5 @@ google-auth
 firebase-admin
 pytest
 allure-pytest
+PyYAML
+python-dotenv
